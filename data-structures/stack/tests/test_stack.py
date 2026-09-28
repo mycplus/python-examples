@@ -4,15 +4,14 @@ from __future__ import annotations
 import io
 import pathlib
 import random
-import sys
 import unittest
+from collections.abc import Callable
 from contextlib import redirect_stdout
-from typing import Any, Callable
+from typing import Any
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
-
-import stack  # noqa: E402
-from stack import ArrayStack, LinkedStack, StackUnderflowError, balanced  # noqa: E402
+# Run from the example directory, which puts stack.py on sys.path.
+import stack
+from stack import ArrayStack, LinkedStack, StackUnderflowError, balanced
 
 HERE = pathlib.Path(__file__).resolve().parent
 

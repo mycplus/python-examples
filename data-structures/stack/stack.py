@@ -85,9 +85,8 @@ def balanced(text: str) -> bool:
     for c in text:
         if c in "([{":
             open_brackets.append(c)
-        elif c in PAIRS:
-            if not open_brackets or open_brackets.pop() != PAIRS[c]:
-                return False
+        elif c in PAIRS and (not open_brackets or open_brackets.pop() != PAIRS[c]):
+            return False
     return not open_brackets
 
 

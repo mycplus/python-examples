@@ -10,7 +10,7 @@ Companion code for [Stack Implementation in C, C++, Java, Python and C#](https:/
 | `list_growth.py` | Counts list reallocations over 1,000,000 appends |
 | `tests/test_stack.py` | `unittest` tests, and the demo's expected output |
 
-Requires Python 3.10 or later. No third-party packages are needed to run the code; CI installs `ruff` and `mypy` for checking.
+Requires Python 3.10 or later. No third-party packages are needed to run the code; CI installs pinned versions of `ruff` (0.16.9) and `mypy` (2.3.1) for checking.
 
 ## Run and test
 

@@ -26,7 +26,8 @@ jobs:
       - name: Lint and type-check
         shell: bash
         run: |
-          python -m pip install --quiet ruff mypy
+          # Pinned: new ruff releases can enable new default rules.
+          python -m pip install --quiet "ruff==0.16.9" "mypy==2.3.1"
           ruff check .
           mypy --strict stack.py list_growth.py tests/test_stack.py
       - name: Unit tests
