@@ -1,0 +1,38 @@
+name: selection-sort
+
+on:
+  push:
+    paths: ['sorting/selection-sort/**', '.github/workflows/selection-sort.yml']
+  pull_request:
+    paths: ['sorting/selection-sort/**', '.github/workflows/selection-sort.yml']
+
+defaults:
+  run:
+    working-directory: sorting/selection-sort
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest]
+        python: ['3.10', '3.11', '3.12', '3.13', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Lint and type-check
+        shell: bash
+        run: |
+          # Pinned: new ruff releases can enable new default rules.
+          python -m pip install --quiet "ruff==0.16.9" "mypy==2.3.1"
+          ruff check .
+          mypy --strict selection_sort.py tests/test_selection_sort.py
+      - name: Unit tests
+        shell: bash
+        run: python -m unittest discover -s tests -v
+      - name: Program prints the article's output
+        shell: bash
+        run: python selection_sort.py | diff --strip-trailing-cr - tests/expected/selection_sort.txt
