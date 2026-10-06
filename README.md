@@ -12,6 +12,7 @@ Python source code examples accompanying programming tutorials on [MYCPLUS.com](
 | [Selection Sort](sorting/selection-sort/) | Selection sort with at most n - 1 swaps | [![Selection Sort](https://github.com/mycplus/python-examples/actions/workflows/selection-sort.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/selection-sort.yml) |
 | [Merge Sort](sorting/merge-sort/) | Top-down merge sort that returns a new list, stable | [![Merge Sort](https://github.com/mycplus/python-examples/actions/workflows/merge-sort.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/merge-sort.yml) |
 | [Heap Sort](sorting/heap-sort/) | In-place heap sort with a max-heap stored in the array | [![Heap Sort](https://github.com/mycplus/python-examples/actions/workflows/heap-sort.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/heap-sort.yml) |
+| [Towers of Hanoi](recursion/towers-of-hanoi/) | Recursive and iterative generators, and any single move computed directly | [![Towers of Hanoi](https://github.com/mycplus/python-examples/actions/workflows/towers-of-hanoi.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/towers-of-hanoi.yml) |
 
 ## License
 
