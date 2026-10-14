@@ -1,0 +1,38 @@
+name: serpent
+
+on:
+  push:
+    paths: ['cryptography/serpent/**', '.github/workflows/serpent.yml']
+  pull_request:
+    paths: ['cryptography/serpent/**', '.github/workflows/serpent.yml']
+
+defaults:
+  run:
+    working-directory: cryptography/serpent
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest]
+        python: ['3.10', '3.11', '3.12', '3.13', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Lint and type-check
+        shell: bash
+        run: |
+          # Pinned: new ruff releases can enable new default rules.
+          python -m pip install --quiet "ruff==0.16.9" "mypy==2.3.1"
+          ruff check .
+          mypy --strict serpent.py serpent_demo.py tests/test_serpent.py bench/serpent_speed.py
+      - name: Unit tests (all 1,043 vectors, key and block lengths, demo output)
+        shell: bash
+        run: python -m unittest discover -s tests -v
+      - name: Demo prints the article's output
+        shell: bash
+        run: python serpent_demo.py | diff --strip-trailing-cr - tests/expected/serpent_demo.txt
