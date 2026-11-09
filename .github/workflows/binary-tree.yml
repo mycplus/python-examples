@@ -1,0 +1,44 @@
+name: binary-tree
+
+on:
+  push:
+    paths: ['data-structures/binary-tree/**', '.github/workflows/binary-tree.yml']
+  pull_request:
+    paths: ['data-structures/binary-tree/**', '.github/workflows/binary-tree.yml']
+
+defaults:
+  run:
+    working-directory: data-structures/binary-tree
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest]
+        python: ['3.10', '3.11', '3.12', '3.13', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Lint and type-check
+        shell: bash
+        run: |
+          # Pinned: new ruff releases can enable new default rules.
+          python -m pip install --quiet "ruff==0.16.9" "mypy==2.3.1"
+          ruff check .
+          mypy --strict binary_tree.py recursive_height.py tests/test_binary_tree.py
+      - name: Unit tests
+        shell: bash
+        run: python -m unittest discover -s tests -v
+      - name: Demo prints the article's output
+        shell: bash
+        run: python binary_tree.py | diff --strip-trailing-cr - tests/expected/binary_tree.txt
+      - name: Recursion stops at the default limit
+        shell: bash
+        run: |
+          python recursive_height.py | tee rh.txt
+          grep -q "n = 500: height 499" rh.txt
+          grep -q "n = 1,000: RecursionError" rh.txt
