@@ -1,0 +1,22 @@
+name: JSON Validation
+
+on:
+  push:
+    paths: ['data-formats/json-validation/**', '.github/workflows/json-validation.yml']
+  pull_request:
+    paths: ['data-formats/json-validation/**', '.github/workflows/json-validation.yml']
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: data-formats/json-validation
+    steps:
+      - uses: actions/checkout@v5
+      # The expected error messages are Python 3.13's (3.12 words some differently).
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Tests and deliberate mistakes
+        run: sh run_all.sh

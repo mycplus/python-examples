@@ -1,0 +1,6 @@
+edge/big-integers.json: accepted, value [9007199254740993,12345678901234567890123]
+edge/bom.json: rejected (JSONDecodeError: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0))
+edge/deep-nesting.json: rejected (RecursionError: maximum recursion depth exceeded while decoding a JSON array from a unicode string)
+edge/duplicate-keys.json: accepted, value {"a":2}
+edge/lone-surrogate.json: accepted, value "\ud800"
+edge/nan.json: accepted, value {"score":NaN}

@@ -14,6 +14,7 @@ Python source code examples accompanying programming tutorials on [MYCPLUS.com](
 | [Heap Sort](sorting/heap-sort/) | In-place heap sort with a max-heap stored in the array | [![Heap Sort](https://github.com/mycplus/python-examples/actions/workflows/heap-sort.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/heap-sort.yml) |
 | [Towers of Hanoi](recursion/towers-of-hanoi/) | Recursive and iterative generators, and any single move computed directly | [![Towers of Hanoi](https://github.com/mycplus/python-examples/actions/workflows/towers-of-hanoi.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/towers-of-hanoi.yml) |
 | [Serpent](cryptography/serpent/) | The Serpent block cipher in pure Python, checked against 1,043 test vectors | [![serpent](https://github.com/mycplus/python-examples/actions/workflows/serpent.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/serpent.yml) |
+| [JSON Validation](data-formats/json-validation/) | Strict json.loads that rejects NaN, and JSON Schema validation with jsonschema | [![JSON Validation](https://github.com/mycplus/python-examples/actions/workflows/json-validation.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/json-validation.yml) |
 
 ## License
 

@@ -1,0 +1,12 @@
+schema/user-bad-role.json: invalid
+  /roles/1: 'owner' is not one of ['admin', 'editor', 'viewer']
+schema/user-extra-field.json: invalid
+  /: Additional properties are not allowed ('nickname' was unexpected)
+schema/user-missing-email.json: invalid
+  /: 'email' is a required property
+schema/user-ok.json: valid
+schema/user-score-range.json: invalid
+  /score: 120 is greater than the maximum of 100
+schema/user-wrong-types.json: invalid
+  /id: '1024' is not of type 'integer'
+  /score: '98.6' is not of type 'number'

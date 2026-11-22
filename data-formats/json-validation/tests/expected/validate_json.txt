@@ -1,0 +1,25 @@
+valid/array.json: valid
+valid/escapes.json: valid
+valid/number.json: valid
+valid/numbers.json: valid
+valid/string.json: valid
+valid/user.json: valid
+valid/whitespace.json: valid
+invalid/bad-escape.json: invalid (Invalid \escape: line 1 column 13 (char 12))
+invalid/capital-true.json: invalid (Expecting value: line 1 column 12 (char 11))
+invalid/comment.json: invalid (Expecting ',' delimiter: line 2 column 10 (char 11))
+invalid/empty.json: invalid (Expecting value: line 1 column 1 (char 0))
+invalid/hex-number.json: invalid (Expecting ',' delimiter: line 1 column 11 (char 10))
+invalid/html-page.json: invalid (Expecting value: line 1 column 1 (char 0))
+invalid/leading-dot.json: invalid (Expecting value: line 1 column 11 (char 10))
+invalid/leading-zero.json: invalid (Expecting ',' delimiter: line 1 column 11 (char 10))
+invalid/mismatched-bracket.json: invalid (Expecting ',' delimiter: line 1 column 12 (char 11))
+invalid/missing-comma.json: invalid (Expecting ',' delimiter: line 1 column 9 (char 8))
+invalid/nan.json: invalid (NaN is not valid JSON)
+invalid/raw-newline.json: invalid (Invalid control character at: line 1 column 14 (char 13))
+invalid/single-quotes.json: invalid (Expecting property name enclosed in double quotes: line 1 column 2 (char 1))
+invalid/trailing-comma.json: invalid (Illegal trailing comma before end of object: line 1 column 16 (char 15))
+invalid/two-values.json: invalid (Extra data: line 1 column 9 (char 8))
+invalid/unclosed.json: invalid (Expecting ',' delimiter: line 2 column 1 (char 8))
+invalid/undefined.json: invalid (Expecting value: line 1 column 10 (char 9))
+invalid/unquoted-key.json: invalid (Expecting property name enclosed in double quotes: line 1 column 2 (char 1))
