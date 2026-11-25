@@ -1,0 +1,13 @@
+caught  gradient sign flipped
+caught  factor 2 dropped from the gradient
+caught  step from the smallest eigenvalue
+caught  no intercept column
+caught  intercept dropped in predict
+caught  lstsq on X without the ones
+caught  MSE not divided by n
+caught  stopping rule never relative
+caught  divergence check removed
+caught  NaN check removed
+caught  coef_ keeps the intercept
+
+11 of 11 mutants caught

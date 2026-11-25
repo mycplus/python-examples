@@ -1,0 +1,18 @@
+{
+  "raw units": {
+    "condition_number": 49921181.10578277,
+    "step": 6.803519781211726e-06,
+    "iterations": 1000000,
+    "converged": false,
+    "final_relative_loss_gap": 0.05992580788162778,
+    "seconds": 17.550295900000492
+  },
+  "standardized": {
+    "condition_number": 429.8764485516773,
+    "step": 0.1259823227435721,
+    "iterations": 6403,
+    "converged": true,
+    "final_relative_loss_gap": 1.109700645262868e-15,
+    "seconds": 0.11080289998790249
+  }
+}

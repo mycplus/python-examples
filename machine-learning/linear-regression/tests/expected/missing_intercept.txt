@@ -1,0 +1,2 @@
+without intercept: test R^2 = -4.235
+with intercept:    test R^2 = 0.453  (intercept 153.74, mean of y_train 153.74)

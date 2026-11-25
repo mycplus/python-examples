@@ -1,0 +1,35 @@
+train rows: 353, test rows: 89
+
+model                                MAE    RMSE     R^2
+baseline (predict the mean)        64.01   73.22  -0.012
+scratch, lstsq                     42.79   53.85   0.453
+scratch, gradient descent          42.79   53.85   0.453
+scikit-learn LinearRegression      42.79   53.85   0.453
+
+gradient descent: 6403 iterations
+largest coefficient gap, scratch lstsq vs scikit-learn: 7.8e-14
+largest coefficient gap, gradient descent vs lstsq:     1.4e-05
+
+coefficients (per standard deviation of each feature):
+  s1     -44.45
+  s5      35.16
+  bmi     25.61
+  s2      24.64
+  bp      16.83
+  s4      13.14
+  sex    -11.51
+  s3       7.68
+  s6       2.35
+  age      1.75
+  intercept 153.74
+
+test R^2 over 100 random 80/20 splits:
+  linear regression  mean 0.467  std 0.070  min 0.258  max 0.658
+  baseline           mean -0.013  std 0.017
+
+coefficient spread over the same 100 splits:
+  s1   mean  -38.59  std   9.47  range  -64.37 to  -17.74
+  s2   mean   23.45  std   7.35  range    5.06 to   41.03
+  bmi  mean   24.78  std   1.64  range   19.33 to   28.52
+  bp   mean   15.78  std   1.74  range   11.73 to   19.97
+correlation of s1 and s2 in the training rows: 0.891

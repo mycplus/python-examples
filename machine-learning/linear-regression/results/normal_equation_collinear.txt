@@ -1,0 +1,8 @@
+columns: 12, rank of X: 11
+condition number of X^T X: 1.0e+18
+normal equations: solve() returned without an error
+  bmi weights: -2.296e+13 and 2.296e+12
+  training MSE: 2925.18
+lstsq: rank 11, bmi weights 0.05547 and 0.5547
+  training MSE: 2859.70
+without the copy: bmi weight 5.603, training MSE 2859.70
