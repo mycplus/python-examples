@@ -1,0 +1,47 @@
+training rows: 455, test rows: 114 (42 malignant)
+
+cross-validated accuracy (5 folds x 10 repeats) and size of the tree on all training rows
+depth  gini CV leaves  train   entropy CV leaves  train
+    1    0.905      2  0.930        0.904      2  0.927
+    2    0.918      4  0.954        0.907      4  0.927
+    3    0.923      8  0.967        0.931      7  0.956
+    4    0.923     13  0.982        0.930     12  0.978
+    5    0.926     16  0.987        0.929     15  0.991
+    6    0.925     19  0.993        0.930     16  0.996
+    7    0.924     22  0.996        0.929     17  1.000
+    8    0.924     24  1.000        0.929     17  1.000
+ none    0.924     24  1.000        0.929     17  1.000
+
+smallest depth within one standard error of the best CV score
+gini     best 0.926 +/- 0.004 at depth 5; chosen depth 3 (0.923)
+entropy  best 0.931 +/- 0.003 at depth 3; chosen depth 3 (0.931)
+
+test rows: 114
+baseline (always benign)      72/114 correct, 42 malignant missed, 0 false alarms
+gini, no depth limit         106/114 correct, 5 malignant missed, 3 false alarms
+gini, depth 3                103/114 correct, 9 malignant missed, 2 false alarms
+entropy, depth 3             107/114 correct, 4 malignant missed, 3 false alarms
+gini and entropy trees agree on 100 of 114 test rows
+
+standardized features: same features at every node True, same test predictions True
+
+the entropy tree of depth 3 (class counts: benign, malignant)
+|--- worst perimeter <= 114.4
+|   |--- worst concave points <= 0.111
+|   |   |--- area error <= 45.17
+|   |   |   |--- class 0 (237, 1)
+|   |   |--- area error >  45.17
+|   |   |   |--- class 0 (4, 3)
+|   |--- worst concave points >  0.111
+|   |   |--- worst texture <= 25.73
+|   |   |   |--- class 0 (26, 2)
+|   |   |--- worst texture >  25.73
+|   |   |   |--- class 1 (13, 22)
+|--- worst perimeter >  114.4
+|   |--- mean concave points <= 0.05008
+|   |   |--- worst texture <= 28.97
+|   |   |   |--- class 0 (5, 1)
+|   |   |--- worst texture >  28.97
+|   |   |   |--- class 1 (0, 6)
+|   |--- mean concave points >  0.05008
+|   |   |--- class 1 (0, 135)

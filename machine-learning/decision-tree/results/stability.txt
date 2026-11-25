@@ -1,0 +1,12 @@
+scikit-learn, default settings, random_state = 0 to 19:
+  20 different trees; test rows correct: 103 to 109 of 114
+
+this article's tree (gini, no depth limit) on 200 bootstrap samples:
+  feature tested at the root:
+    worst perimeter        100
+    worst concave points    36
+    worst radius            28
+    mean concave points     27
+    worst area               9
+  test rows correct per tree: mean 104.5, min 96, max 110 of 114
+  majority vote of the 200 trees: 109 of 114

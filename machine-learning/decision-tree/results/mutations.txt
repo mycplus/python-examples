@@ -1,0 +1,19 @@
+caught  Gini without the 1 -
+caught  entropy in natural log
+caught  right counts off by one row
+caught  splits between equal values allowed
+caught  min_samples_leaf ignored
+caught  children weighted equally
+caught  ties go to the last feature
+caught  threshold at the left value
+caught  depth limit one level too deep
+caught  min_samples_split ignored
+caught  pure nodes split again
+caught  training rows routed with <
+caught  prediction routed with <
+caught  children swapped
+caught  thresholds exported with 6 digits
+caught  exported comparison uses <
+caught  loader compares with <
+
+17 of 17 mutants caught

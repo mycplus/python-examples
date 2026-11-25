@@ -1,0 +1,14 @@
+all 8 customers: 2 cancelled
+gini 0.3750, entropy 0.8113 bits
+
+split         left    right   gini gain  entropy gain
+months <= 1.5  0 of 1  2 of 7     0.0179        0.0560
+months <= 2.5  0 of 2  2 of 6     0.0417        0.1226
+months <= 3.5  0 of 3  2 of 5     0.0750        0.2044
+months <= 4.5  0 of 4  2 of 4     0.1250        0.3113
+months <= 5.5  1 of 5  1 of 3     0.0083        0.0157
+months <= 6.5  1 of 6  1 of 2     0.0417        0.0738
+months <= 7.5  1 of 7  1 of 1     0.1607        0.2936
+
+gini    tree's first split: months <= 7.5
+entropy tree's first split: months <= 4.5

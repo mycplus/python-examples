@@ -1,0 +1,7 @@
+1,000,008 rows, tree depth 3, 7 leaves
+checksums: [732426313] (all equal: True)
+
+nanoseconds per row (median of repeated runs), x86_64
+pure Python, exported node table         793.8
+NumPy, this article's tree               216.9
+scikit-learn predict                     133.5
