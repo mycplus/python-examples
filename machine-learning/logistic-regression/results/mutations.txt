@@ -1,0 +1,13 @@
+caught  sigmoid sign flipped
+caught  gradient not divided by n
+caught  prediction and label swapped
+caught  intercept penalized in the gradient
+caught  Hessian without p(1 - p)
+caught  Hessian without the penalty
+caught  curvature bound without the 1/4
+caught  log loss sign error
+caught  Newton step added
+caught  label check removed
+caught  coef_ keeps the intercept
+
+11 of 11 mutants caught

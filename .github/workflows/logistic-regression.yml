@@ -1,0 +1,51 @@
+name: logistic-regression
+
+on:
+  push:
+    paths: ['machine-learning/logistic-regression/**', '.github/workflows/logistic-regression.yml']
+  pull_request:
+    paths: ['machine-learning/logistic-regression/**', '.github/workflows/logistic-regression.yml']
+
+defaults:
+  run:
+    working-directory: machine-learning/logistic-regression
+    shell: bash
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest]
+        python: ['3.13', '3.14', '3.15']
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: machine-learning/logistic-regression/requirements-dev.txt
+      - name: Install pinned dependencies
+        run: python -m pip install --quiet -r requirements-dev.txt
+      - name: Lint and type-check
+        run: |
+          ruff check .
+          ruff format --check .
+          mypy logistic_regression.py data.py tests/test_logistic_regression.py worked_example.py \
+              breast_cancer_experiment.py threshold_experiment.py separation_experiment.py \
+              mutations.py pitfalls/*.py
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Programs print the article's output
+        run: |
+          for script in worked_example threshold_experiment; do
+            python "$script.py" | diff --strip-trailing-cr - "tests/expected/$(basename "$script").txt"
+          done
+      - name: Experiments run
+        run: |
+          python breast_cancer_experiment.py
+          python pitfalls/default_regularization.py
+      - name: Deliberate mistakes are caught
+        if: matrix.os == 'ubuntu-24.04' && matrix.python == '3.15'
+        run: python mutations.py

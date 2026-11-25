@@ -1,0 +1,16 @@
+at theta = 0: loss = 0.6931 (ln 2 = 0.6931)
+gradient: d/d(intercept) = 0.0000, d/d(weight) = -0.4750
+
+newton: intercept = -3.7219, weight = 1.3534  (5 iterations)
+gd:     intercept = -3.7219, weight = 1.3534  (2487 iterations)
+final loss = 0.4335
+
+P(pass) = 0.5 at 2.75 hours
+each extra hour multiplies the odds of passing by 3.87
+
+hours  P(pass)
+  1.0    0.086
+  2.0    0.266
+  3.0    0.584
+  4.0    0.844
+  5.0    0.955

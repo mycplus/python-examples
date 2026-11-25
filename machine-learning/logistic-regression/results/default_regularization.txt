@@ -1,0 +1,5 @@
+model                                  intercept  weight
+from scratch, no penalty                 -3.7219  1.3534
+scikit-learn, defaults (C=1.0)           -2.5236  0.9177
+scikit-learn, C=np.inf                   -3.7234  1.3539
+from scratch, l2 = 1 / (C * n)           -2.5233  0.9176

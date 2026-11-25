@@ -1,0 +1,23 @@
+train rows: 455 (170 malignant), test rows: 114 (42 malignant)
+
+model                          acc   prec recall     F1    AUC  logloss
+baseline (class prior)       0.632  0.000  0.000  0.000  0.500   0.6582
+scratch, newton              0.965  0.975  0.929  0.951  0.996   0.0772
+scratch, gradient descent    0.965  0.975  0.929  0.951  0.996   0.0772
+scikit-learn (C=1.0)         0.965  0.975  0.929  0.951  0.996   0.0772
+
+newton: 9 iterations; gradient descent: 15980 iterations
+largest weight gap, newton vs scikit-learn:  1.2e-06
+largest weight gap, gd vs newton:            2.8e-06
+
+confusion matrix, scratch newton at threshold 0.5 (rows: actual, cols: predicted)
+              benign  malignant
+benign            71          1
+malignant          3         39
+
+largest weights (log-odds per standard deviation) and odds ratios:
+  worst texture            1.43   x 4.17
+  radius error             1.24   x 3.45
+  worst symmetry           1.06   x 2.89
+  mean concave points      0.95   x 2.58
+  area error               0.91   x 2.49

@@ -16,6 +16,7 @@ Python source code examples accompanying programming tutorials on [MYCPLUS.com](
 | [Serpent](cryptography/serpent/) | The Serpent block cipher in pure Python, checked against 1,043 test vectors | [![serpent](https://github.com/mycplus/python-examples/actions/workflows/serpent.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/serpent.yml) |
 | [JSON Validation](data-formats/json-validation/) | Strict json.loads that rejects NaN, and JSON Schema validation with jsonschema | [![JSON Validation](https://github.com/mycplus/python-examples/actions/workflows/json-validation.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/json-validation.yml) |
 | [Linear Regression](machine-learning/linear-regression/) | Least squares and gradient descent from scratch in NumPy, checked against scikit-learn on the diabetes data | [![Linear Regression](https://github.com/mycplus/python-examples/actions/workflows/linear-regression.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/linear-regression.yml) |
+| [Logistic Regression](machine-learning/logistic-regression/) | Logistic regression from scratch in NumPy with Newton's method and gradient descent, checked against scikit-learn on the breast cancer data | [![Logistic Regression](https://github.com/mycplus/python-examples/actions/workflows/logistic-regression.yml/badge.svg)](https://github.com/mycplus/python-examples/actions/workflows/logistic-regression.yml) |
 
 ## License
 
