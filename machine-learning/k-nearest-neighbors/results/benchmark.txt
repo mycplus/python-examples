@@ -1,0 +1,9 @@
+20,000 training rows, 1,000 queries, 8 features, k=5
+checksum of predictions: 502492; accuracy 0.889
+scikit-learn brute, k-d tree and pure Python agree: True
+
+microseconds per query (median of repeated runs), x86_64
+pure Python (20 queries)                  14708.3
+NumPy, this article's KNNClassifier        3087.8
+scikit-learn, algorithm='brute'              73.1
+scikit-learn, algorithm='kd_tree'            38.9

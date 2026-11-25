@@ -1,0 +1,18 @@
+caught  square root left out of the distance
+caught  manhattan distance without abs()
+caught  neighbors picked with argpartition, never sorted
+caught  one neighbor too few
+caught  query counted as neighbor 0
+caught  weights 1/d squared
+caught  zero-distance rule dropped
+caught  tied vote goes to the largest label
+caught  k larger than the data accepted
+caught  NaN accepted
+caught  labels assumed to be 0, 1, 2, ...
+caught  sample standard deviation (ddof=1)
+caught  test rows scaled with their own statistics
+caught  mean not subtracted
+caught  splitmix64 increment wrong
+caught  uniform from the low bits
+
+16 of 16 mutants caught

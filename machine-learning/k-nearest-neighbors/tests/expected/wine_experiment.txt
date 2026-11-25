@@ -1,0 +1,36 @@
+unscaled      proline's share of squared distance: 99.7%
+standardized  proline's share of squared distance: 7.7%
+
+cross-validated accuracy on the training rows (5 folds x 10 repeats)
+  k  unscaled  standardized
+  1     0.741         0.952
+  3     0.682         0.961
+  5     0.691         0.957
+  7     0.706         0.963
+  9     0.684         0.965
+ 11     0.692         0.968
+ 13     0.695         0.968
+ 15     0.697         0.970
+ 17     0.702         0.972
+ 19     0.699         0.969
+ 21     0.702         0.970
+ 23     0.712         0.971
+ 25     0.707         0.974
+ 27     0.709         0.976
+ 29     0.703         0.974
+ 31     0.703         0.973
+
+best k for each variant (the smallest k among equal scores)
+unscaled, euclidean                          k=1   0.741
+standardized, euclidean                      k=27  0.976
+standardized, manhattan                      k=7   0.985
+standardized, euclidean, distance-weighted   k=29  0.976
+
+test rows: 45
+scikit-learn defaults: unscaled, k=5         k=5   35/45 = 0.778
+unscaled, euclidean                          k=1   33/45 = 0.733
+standardized, euclidean                      k=27  43/45 = 0.956
+standardized, manhattan                      k=7   44/45 = 0.978
+standardized, euclidean, distance-weighted   k=29  44/45 = 0.978
+
+same test predictions as scikit-learn: 64 of 64 settings

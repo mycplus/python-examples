@@ -1,0 +1,7 @@
+k=1, unscaled     accuracy on its own training rows: 1.000
+k=1, standardized accuracy on its own training rows: 1.000
+
+standardized, test-set score for every odd k from 1 to 31 (of 45):
+1:43 3:43 5:42 7:44 9:44 11:44 13:44 15:45 17:45 19:45 21:45 23:45 25:44 27:43 29:44 31:43
+best k chosen on the test rows: k=15, 45/45
+k=27 chosen by cross-validation on the training rows: 43/45
