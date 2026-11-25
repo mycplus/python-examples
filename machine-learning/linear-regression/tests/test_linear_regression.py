@@ -189,18 +189,23 @@ class InputValidation(unittest.TestCase):
 
 
 class Pitfalls(unittest.TestCase):
-    def test_normal_equations_fail_silently_on_collinear_columns(self) -> None:
+    def test_collinear_columns_make_the_normal_equations_unreliable(self) -> None:
+        # What np.linalg.solve does with a singular X^T X depends on the
+        # machine: it has raised LinAlgError, returned weights near 1e13, and
+        # returned ordinary-looking weights. So the test checks only what holds
+        # everywhere: X^T X is numerically singular, and lstsq reports the true
+        # rank and gives the predictions of the model without the copy.
         X, y = diabetes()
         Xb = np.column_stack([np.ones(len(y)), X, X[:, 2] * 10.0])
-        try:
-            theta = np.linalg.solve(Xb.T @ Xb, Xb.T @ y)
-        except np.linalg.LinAlgError:
-            return  # failing loudly is the acceptable outcome
-        good = np.linalg.lstsq(Xb, y)[0]
-        loss_ne = np.mean((Xb @ theta - y) ** 2)
-        loss_ls = np.mean((Xb @ good - y) ** 2)
-        self.assertGreater(abs(theta[3]), 1e6)  # absurd weights
-        self.assertGreater(loss_ne, loss_ls)  # and a worse fit
+        self.assertGreater(np.linalg.cond(Xb.T @ Xb), 1e15)
+        theta, _, rank, _ = np.linalg.lstsq(Xb, y)
+        self.assertEqual(rank, Xb.shape[1] - 1)
+        base = np.linalg.lstsq(np.column_stack([np.ones(len(y)), X]), y)[0]
+        assert_allclose(
+            Xb @ theta, np.column_stack([np.ones(len(y)), X]) @ base, rtol=1e-8
+        )
+        # The two BMI weights add up to the single-column weight.
+        self.assertAlmostEqual(theta[3] + 10.0 * theta[-1], base[3], places=6)
 
 
 if __name__ == "__main__":

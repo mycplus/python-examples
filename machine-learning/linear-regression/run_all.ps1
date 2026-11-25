@@ -9,7 +9,8 @@ function Add($s) { $script:lines.Add($s) }
 function Run($title, [string[]]$cmd) {
     Add "## $title"
     Add '```text'
-    $text = & $cmd[0] $cmd[1..($cmd.Length - 1)] 2>&1 | Out-String
+    # "$_" turns stderr records into plain text (no NativeCommandError noise)
+    $text = & $cmd[0] $cmd[1..($cmd.Length - 1)] 2>&1 | ForEach-Object { "$_" } | Out-String
     Add $text.TrimEnd()
     Add '```'
     Add "exit code: $LASTEXITCODE"
