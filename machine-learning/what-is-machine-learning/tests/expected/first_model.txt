@@ -1,0 +1,8 @@
+data     150 rows, 4 features
+split    112 training rows, 38 test rows
+baseline accuracy 0.3158
+model accuracy    0.9737
+confusion matrix, rows are true classes
+[[13  0  0]
+ [ 0 13  0]
+ [ 0  1 11]]

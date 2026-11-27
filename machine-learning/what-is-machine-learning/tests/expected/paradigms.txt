@@ -1,0 +1,15 @@
+unsupervised: k-means on the 150 iris rows with no labels shown
+cluster sizes          [53, 50, 47]
+silhouette score       0.4599
+adjusted Rand index    0.6201
+cluster 0 holds versicolor 39, virginica 14
+cluster 1 holds setosa 50
+cluster 2 holds versicolor 11, virginica 36
+
+reinforcement learning: tabular Q-learning, 300 episodes, 4x4 grid
+greedy path from (0, 0)  (0, 0) to (0, 1) to (0, 2) to (1, 2) to (1, 3) to (2, 3) to (3, 3)
+steps in that path       6
+states visited            16
+largest Q value           1.0000
+
+wrote paradigms.json
