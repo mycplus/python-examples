@@ -7,7 +7,7 @@ Companion code for [What Is Machine Learning? Types, Workflow and a First Model 
 | File | What it is |
 | --- | --- |
 | `first_model.py` | 39 lines: stratified 75/25 split of the iris data, `StandardScaler` inside a pipeline, logistic regression, majority-class baseline, accuracy and confusion matrix |
-| `paradigms.py` | The same 150 rows clustered with k-means and no labels (silhouette, adjusted Rand index against the species), then tabular Q-learning on a 4×4 gridworld with two holes |
+| `paradigms.py` | The same 150 rows clustered with k-means and no labels (silhouette, adjusted Rand index against the species), a held-out check that fits on 112 rows and assigns the other 38, then tabular Q-learning on a 4×4 gridworld with two holes |
 | `learning_curve.py` | The same pipeline on 10 fractions of the training rows, 20 split seeds each, written to `results/learning_curve.json` |
 | `tests/` | 12 `unittest` tests and the expected output of the three programs |
 | `results/` | The JSON files behind the article's learning-curve figure and its hero |

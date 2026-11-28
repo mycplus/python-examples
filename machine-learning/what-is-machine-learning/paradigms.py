@@ -14,6 +14,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.datasets import load_iris
 from sklearn.metrics import adjusted_rand_score, silhouette_score
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 SEED = 0
@@ -36,11 +37,28 @@ def unsupervised() -> dict[str, object]:
         names = iris.target_names
         parts = ", ".join(f"{names[i]} {counts[i]}" for i in range(3) if counts[i])
         print(f"cluster {cluster} holds {parts}")
+
+    # Everything above is in-sample: the clusters are scored on the rows they
+    # were fitted on. This repeats it with rows the model has never seen.
+    index = np.arange(len(iris.data))
+    train_index, test_index = train_test_split(
+        index, test_size=0.25, random_state=SEED, stratify=iris.target
+    )
+    scaler = StandardScaler().fit(iris.data[train_index])
+    train = scaler.transform(iris.data[train_index])
+    test = scaler.transform(iris.data[test_index])
+    held = KMeans(n_clusters=3, n_init=10, random_state=SEED).fit(train)
+    held_labels = held.predict(test)
+    held_ari = float(adjusted_rand_score(iris.target[test_index], held_labels))
+    print(f"held-out check         fit on {len(train_index)} rows, assigned "
+          f"{len(test_index)} unseen rows: ARI {held_ari:.4f}")
     return {
         "cluster_sizes": sizes.tolist(),
         "silhouette": float(silhouette_score(X, model.labels_)),
         "adjusted_rand": float(adjusted_rand_score(iris.target, model.labels_)),
         "labels": [int(v) for v in model.labels_],
+        "heldout_ari": held_ari,
+        "heldout_rows": len(test_index),
     }
 
 

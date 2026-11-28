@@ -126,6 +126,7 @@
     "standard_error": 0.0016069948825253094,
     "two_standard_errors": 0.0032139897650506188
   },
+  "mean_training_overlap": 318.94612244897957,
   "agreement": {
     "prediction_gap": 2.55351295663786e-15,
     "prediction_relative": 1.883478101091335e-15,

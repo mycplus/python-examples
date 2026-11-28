@@ -14,6 +14,7 @@ paired difference model - baseline   mean 0.3484  sd 0.0114
 standard error of that difference    0.0016
 smallest difference worth reporting  0.0032 (two standard errors)
 splits where the model beats the baseline   50 of 50
+training rows shared by two splits   318.9 of 569 (56.1%) on average
 
 score if only split 0 had been run       0.9580
 highest-scoring split: 37  1.0000  (+2.22 points from the mean)

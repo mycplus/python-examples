@@ -95,6 +95,22 @@ def tolerance_check(X: np.ndarray, y: np.ndarray, seed: int = 0) -> dict[str, fl
     }
 
 
+def split_overlap(y: np.ndarray, seed_a: int = 0, seed_b: int = 1) -> float:
+    """How many training rows two of the splits share, on average."""
+    index = np.arange(len(y))
+    trains = []
+    for seed in range(SPLITS):
+        train_index, _ = train_test_split(
+            index, test_size=TEST_SIZE, random_state=seed, stratify=y
+        )
+        trains.append(set(train_index.tolist()))
+    shared = []
+    for first in range(SPLITS):
+        for second in range(first + 1, SPLITS):
+            shared.append(len(trains[first] & trains[second]))
+    return float(np.mean(shared))
+
+
 def main() -> None:
     X, y = load_data()
     n_rows, n_features = X.shape
@@ -139,7 +155,10 @@ def main() -> None:
     print(f"smallest difference worth reporting  {2 * standard_error:.4f} "
           f"(two standard errors)")
     print(f"splits where the model beats the baseline   "
-          f"{int((diffs > 0).sum())} of {SPLITS}")
+          f"{(diffs > 0).sum()} of {SPLITS}")
+    overlap = split_overlap(y)
+    print(f"training rows shared by two splits   {overlap:.1f} of {n_rows} "
+          f"({overlap / n_rows:.1%}) on average")
     print()
 
     best_seed = int(np.argmax(scores["model"]))
@@ -181,6 +200,7 @@ def main() -> None:
             "standard_error": float(standard_error),
             "two_standard_errors": float(2 * standard_error),
         },
+        "mean_training_overlap": overlap,
         "agreement": agreement,
     }
     out = RESULTS / "split_scores.json"

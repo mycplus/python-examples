@@ -27,4 +27,6 @@ The script writes `split_scores.json` into the directory you pass as the first a
 
 Both systems used Python with NumPy 2.5.5 and scikit-learn 1.9.1: Windows 11 with Python 3.14.6 and Ubuntu 24.04.5 under WSL 2 with Python 3.12.3. All 50 scores and every summary statistic matched to the last printed digit. The from-scratch least-squares fit agreed with scikit-learn to 4.330e-15 on predictions on Windows and 2.554e-15 on Ubuntu, both far inside the 1e-10 relative tolerance the series uses. The difference between the systems is floating-point reassociation, which is why the check is written as a tolerance rather than as an equality.
 
+The script also prints how much the 50 splits overlap: any two of them share 318.9 of the 569 training rows, 56.1 percent on average. That is why the two-standard-error figure the script prints is a floor on the noise of this design rather than a confidence interval, and why the article describes it that way.
+
 The script is a demonstration rather than a library, so it has no test suite: it asserts nothing and reports everything. The algorithm articles it supports carry their own test suites.

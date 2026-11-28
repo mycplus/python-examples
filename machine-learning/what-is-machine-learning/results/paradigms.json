@@ -158,7 +158,9 @@
       2,
       2,
       0
-    ]
+    ],
+    "heldout_ari": 0.5062370062370062,
+    "heldout_rows": 38
   },
   "q_learning": {
     "path": [
